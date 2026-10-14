@@ -85,7 +85,7 @@ function addTask(e){
 
     //store task in localstorage
 
-    storeTaskInLocalStorage(input.value);    input.value="";
+    storeTaskInLocalStorage(input.value);   
     input.value = "";
     
    }
