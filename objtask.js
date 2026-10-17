@@ -16,6 +16,8 @@ const obj1 = new Person("shifa",21);
 console.log(obj1.name);
 console.log(obj1.age);
 
+
+
 //regular function kulla this 
 
 console.log(this); // window varum (browser)
@@ -76,3 +78,34 @@ function greetFrom(city,country){
 
 console.log(greetFrom.apply(person3,["Trichy","India"]));
 console.log(greetFrom.apply(person4,["Trichy","India"]));
+
+
+//compare prototype
+
+function details(city,country){
+    this.city=city;
+    this.country=country;
+}
+
+details.prototype.detail = function(){
+    return `I am from ${this.city},${this.country}`;
+}
+
+const result = new details("Trichy","India");
+const result1 = new details("chennai","india");
+
+console.log(result);
+console.log(result.detail());
+
+result.detail=function(){
+    return "overide";
+}
+details.prototype.detail=function(){
+    return "this is overide line";
+}
+console.log(result);
+console.log(result.detail());
+
+console.log(result1);
+console.log(result1.detail());
+
