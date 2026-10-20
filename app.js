@@ -6,8 +6,10 @@
 //step-6 secret identity ah reveal,set pandrom (reveal)return pannu , set (identity) ah save pannu
 //step-7 delete condition
 //step-8 edit condition/edit logic
-//step-9 search hero
-
+//step-9 search hero list la xyz iruku search la xyz pota show aagum xyza pota poirum
+//step-10 sort (ascending)
+//step-11 toggle dark mode 1st btn
+//step-12 scope ( let -> var for heros)
 
 //step:1 Hero constructor function
 function Hero (name,powerLevel,secretIdentity,category){
@@ -32,7 +34,7 @@ function Hero (name,powerLevel,secretIdentity,category){
 }
 
 //step-2 Global variable
-let heros = [];
+var heros = [];
 let isEditing = false;
 let editIndex = null;
 
@@ -96,7 +98,7 @@ document.querySelector("#heroForm").addEventListener("submit",function(e){
     // console.log(heros); //[hero] inside la namma insert pannathu iruku
 
 
-    //step-9 mela ullatha comment potutu
+    //step-8 mela ullatha comment potutu
     //initial ah edit false ah irku , 
     //edit click pantu save btn click panna hero varum athula namma edit pandratha kudukanu
     if(isEditing){
@@ -138,7 +140,7 @@ saveHeros(); // onnu onnu add aarapa previous su sendhu add agum
 //step-3 render kaana function
 // function renderHeros(){
 
-//step-10 continue
+//step-10 search continue initial filter empty type panna panna update agum
 function renderHeros(filter=""){
     console.log(filter);
 
@@ -152,7 +154,7 @@ function renderHeros(filter=""){
         //  console.log(hero.name.toLowerCase());//submit kuduthutu enna type pannalau antha hero name + namma search pandrathu varum
         // console.log(hero.name.toLowerCase().includes("shifa"));//true
         if(hero.name.toLowerCase().includes(filter.toLowerCase())){
-           
+         //create element  
         const item = document.createElement("li");
         // 2-li ku classname add
         item.className="list-group-item d-flex justify-content-between align-items-center";
@@ -175,9 +177,6 @@ function renderHeros(filter=""){
         //append pannanu item(li) ah ul la
        ul.appendChild(item);
         }
-
-    
-    
 
         //submit panna list create aaganu
 
@@ -219,7 +218,6 @@ function renderHeros(filter=""){
     })
 }
 
-
 //step-7 delete function
 
 function deleteHero(index){
@@ -230,7 +228,6 @@ if(confirm("Are you sure you want to delete this hero? ")){
     renderHeros(); //ui render pannu 
     saveHeros();//local storage la save pannu
 }
-
 }
 
 //step-8 edit function 
@@ -247,21 +244,72 @@ document.querySelector("#heroPower").value=hero.powerLevel;
 document.querySelector("#secretIdentity").value=hero.revealIdentity();
 document.querySelector("#heroCategory").value=hero.category;
 
-
 //step-8 isediting false la irukuratha true aaka pore
 // editindex null la irukuratha entha index nu set panna pore
 
  isEditing = true;
  editIndex = index;  //condition add/edit la write pannanu
 }
-
-
 //step-9 search hero (keyup and input same ethu venaalu use pannalam )
-
-document.querySelector("#searchhero").addEventListener("input",function(e){
+//search input
+document.querySelector("#searchHero").addEventListener("input",function(e){
     // console.log(e.target.value); type pandrathu console la varum
     //first mela render func la filter vaipom initial filter = ""
     //  aprm type panna panna add aagum 
 
     renderHeros(e.target.value);
 })
+
+//step-10 sort heros
+
+function sortHeros(asc=true){
+    // console.log(heros);
+    //sort button la uparr true downarr false set pannanu
+    heros.sort((a,b) => asc ? a.powerLevel - b.powerLevel : b.powerLevel - a.powerLevel);
+    renderHeros();
+    saveHeros();
+}
+sortHeros();
+//eg: sort
+
+// const arr=[21,92,15,31];
+
+// const x = arr.sort(function(a,b){
+//     return a - b;
+// })
+// const y = arr.sort(function(a,b){
+//     return b - a;   
+// })
+// console.log(x);  //(4)[2,3,5,9]  || (4)[92,31,21,15]  (number -> string ah convert aagum)
+// console.log(y);  //(4)[9,5,3,2]  || (4)[92,31,21,15] double digit la work aagathu
+
+// //lexicographical order (1st no ah vachu sort pannu 100->1 , 52->5 , 40-> 4 ==> 1,4,5==> 100,49,52) 
+// const a = [100,52,40];  // output crt ah varathu 
+// //string ah maari string oda ascending ah paakum
+// console.log(a.sort());
+
+//direct sort() ku tha prb varum
+
+// const arr = [22,11,50];
+
+// const sortedAsc = arr.sort((a,b) => a - b);
+// console.log(sortedAsc); //(3) [11, 22, 50]
+
+// const sortedDes = arr.sort((a,b) => b - a);
+// console.log(sortedDes); //(3) [50, 22, 11]
+ 
+//prb ennana final la console.log(arr) pota original arr modified aagirukum
+// console.log(arr);//(3) [50, 22, 11] itha solve panna
+// spread operator use 
+
+// console.log([...arr]); // (3)[22,11,50]
+
+// const asc = [...arr].sort((a,b) => a - b);
+// console.log(asc); //(3)[11,22,50]
+// console.log(arr); //(3)[22,11,50] original arr change aagathu
+
+//step-11 toggle body la db-light kuduthurupom 
+function toggleTheme(){
+    document.body.classList.toggle("bg-dark");
+    document.body.classList.toggle("text-white");
+}

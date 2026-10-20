@@ -12,16 +12,16 @@
 
     <form id="heroForm" class="row g-3 mb-4">
       <div class="col-12">
-        <input type="text" class="form-control" id="searchhero" placeholder="Search Hero by Name...">
+        <input type="text" class="form-control" id="searchHero" placeholder="Search Hero by Name...">
       </div>
       <div class="col-md-4">
-        <input type="text" class="form-control" id="heroName" placeholder="Hero Name" required value="shifa"/>
+        <input type="text" class="form-control" id="heroName" placeholder="Hero Name" required />
       </div>
       <div class="col-md-4">
-        <input type="number" class="form-control" id="heroPower" placeholder="Power Level" required value="1" />
+        <input type="number" class="form-control" id="heroPower" placeholder="Power Level" required  />
       </div>
       <div class="col-md-4">
-        <input type="text" class="form-control" id="secretIdentity" placeholder="Secret Identity" required  value="test" />
+        <input type="text" class="form-control" id="secretIdentity" placeholder="Secret Identity" required   />
       </div>
       <div class="col-md-2">
         <select class="form-select" id="heroCategory">
@@ -41,9 +41,9 @@
 
     <!-- sortButtons -->
      <div class="mb-3">
-      <button class="btn btn-outline-dark btn-sm me-2">Sort ↑ Power  </button>
-      <button class="btn btn-outline-dark btn-sm me-2">Sort ↓ Power </button>
-      <button class="btn btn-outline-secondary btn-sm">🌙 Toggle Dark Mode</button>
+      <button class="btn btn-outline-dark btn-sm me-2" onclick="sortHeros(true)">Sort ↑ Power  </button>
+      <button class="btn btn-outline-dark btn-sm me-2" onclick="sortHeros(false)">Sort ↓ Power </button>
+      <button class="btn btn-outline-secondary btn-sm" onclick="toggleTheme()">🌙 Toggle Dark Mode</button>
      </div>
 
     <ul class="list-group" id="heroList">
