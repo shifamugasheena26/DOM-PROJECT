@@ -34,7 +34,7 @@ function Hero (name,powerLevel,secretIdentity,category){
 }
 
 //step-2 Global variable
-var heros = [];
+let heros = [];
 let isEditing = false;
 let editIndex = null;
 
@@ -55,10 +55,12 @@ window.onload = function(){
         const raw = JSON.parse(saved);
         heros=raw.map(function(h){
            return new Hero(h.name,h.powerLevel,h._secret || h.secretIdentity , h.category)
-        })
+        });
+        console.log(heros);
        renderHeros();
     }
 }
+
 
 //step-4
 function saveHeros(){ //map new array kudukum
@@ -71,7 +73,6 @@ function saveHeros(){ //map new array kudukum
         //step-4
         secretIdentity:hero.revealIdentity()
     }
-   
 })
 // console.log(data);
 localStorage.setItem("heros",JSON.stringify(data));
@@ -256,8 +257,10 @@ document.querySelector("#searchHero").addEventListener("input",function(e){
     // console.log(e.target.value); type pandrathu console la varum
     //first mela render func la filter vaipom initial filter = ""
     //  aprm type panna panna add aagum 
-
+    
     renderHeros(e.target.value);
+    
+   
 })
 
 //step-10 sort heros
@@ -269,7 +272,7 @@ function sortHeros(asc=true){
     renderHeros();
     saveHeros();
 }
-sortHeros();
+// sortHeros();
 //eg: sort
 
 // const arr=[21,92,15,31];
@@ -300,6 +303,7 @@ sortHeros();
  
 //prb ennana final la console.log(arr) pota original arr modified aagirukum
 // console.log(arr);//(3) [50, 22, 11] itha solve panna
+
 // spread operator use 
 
 // console.log([...arr]); // (3)[22,11,50]
@@ -313,3 +317,54 @@ function toggleTheme(){
     document.body.classList.toggle("bg-dark");
     document.body.classList.toggle("text-white");
 }
+
+
+
+// var x = "xyz";
+
+// function test(){
+//     const x = "hello";
+//     console.log(x);
+// }
+// test();
+// var x = "xyz";
+// console.log(x);
+
+//rendu x conflict aagathu var
+
+
+function greet() {
+  var message = "Hello";
+  console.log(message);
+}
+greet();
+// Try: console.log(message); // What happens?
+
+{
+  let count = 10;
+  console.log(count);
+}
+// Try: console.log(count); // Why error?
+
+if (true) {
+  var name = "Ali";
+}
+console.log(name); // What prints?
+
+{
+  const pi = 3.14;
+  console.log(pi);
+}
+// Try to access `pi` outside — what happens?
+var a = 1;
+let b = 2;
+
+console.log(window.a); // What is this in browser?
+console.log(window.b); // Any difference?
+
+let lang = "JS";
+{
+  let lang = "Python";
+  console.log(lang); // Which one prints?
+}
+console.log(lang); // Why different?
