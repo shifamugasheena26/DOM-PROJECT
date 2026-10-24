@@ -34,7 +34,7 @@ function Hero (name,powerLevel,secretIdentity,category){
 }
 
 //step-2 Global variable
-let heros = [];
+var heros = [];
 let isEditing = false;
 let editIndex = null;
 
@@ -333,38 +333,38 @@ function toggleTheme(){
 //rendu x conflict aagathu var
 
 
-function greet() {
-  var message = "Hello";
-  console.log(message);
-}
-greet();
-// Try: console.log(message); // What happens?
+// function greet() {
+//   var message = "Hello";
+//   console.log(message);
+// }
+// greet();
+// // Try: console.log(message); // What happens?
 
-{
-  let count = 10;
-  console.log(count);
-}
-// Try: console.log(count); // Why error?
+// {
+//   let count = 10;
+//   console.log(count);
+// }
+// // Try: console.log(count); // Why error?
 
-if (true) {
-  var name = "Ali";
-}
-console.log(name); // What prints?
+// if (true) {
+//   var name = "Ali";
+// }
+// console.log(name); // What prints?
 
-{
-  const pi = 3.14;
-  console.log(pi);
-}
-// Try to access `pi` outside — what happens?
-var a = 1;
-let b = 2;
+// {
+//   const pi = 3.14;
+//   console.log(pi);
+// }
+// // Try to access `pi` outside — what happens?
+// var a = 1;
+// let b = 2;
 
-console.log(window.a); // What is this in browser?
-console.log(window.b); // Any difference?
+// console.log(window.a); // What is this in browser?
+// console.log(window.b); // Any difference?
 
-let lang = "JS";
-{
-  let lang = "Python";
-  console.log(lang); // Which one prints?
-}
-console.log(lang); // Why different?
+// let lang = "JS";
+// {
+//   let lang = "Python";
+//   console.log(lang); // Which one prints?
+// }
+// console.log(lang); // Why different?
