@@ -1,111 +1,191 @@
-//normal object create and print
-const obj = {
-    name :"shifa",
-    age :21,
-}
-console.log(obj.name);
-console.log(obj.age);
+// //normal object create and print
+// const obj = {
+//     name :"shifa",
+//     age :21,
+// }
+// console.log(obj.name);
+// console.log(obj.age);
 
-//constructor function
+// //constructor function
 
-function Person(name,age){
-   this.name=name;
-   this.age=age;
-}
-const obj1 = new Person("shifa",21);
-console.log(obj1.name);
-console.log(obj1.age);
-
-
-
-//regular function kulla this 
-
-console.log(this); // window varum (browser)
-
-const obj2 = {
-    name : "shifa",
-
-    insidemethod : function(){
-      console.log(this);
-    }
-
-}
-obj2.insidemethod();
-
-//compare 2 obj prototype
-
-function Student (name,age){
-    this.name=name;
-    this.age=age;
-}
-const p1 = new Student("shifa",21);
-const p2 = new Student("raj",21);
-
-console.log(Object.getPrototypeOf(p1)===Object.getPrototypeOf(p2));
-
-//call() apply()
-//this will help to call a one function in different context
-
-const person1 = {
-    name : "shifa",
-}
-
-const person2 = {
-    name : "raji",
-}
-
-function greet(){
-    return `hello ${this.name}`;
-}
-
-console.log(greet.call(person1));
-console.log(greet.call(person2));
+// function Person(name,age){
+//    this.name=name;
+//    this.age=age;
+// }
+// const obj1 = new Person("shifa",21);
+// console.log(obj1.name);
+// console.log(obj1.age);
 
 
-//apply()
 
-const person3 = {
-    name : "raja",
-}
+// //regular function kulla this 
 
-const person4 ={
-    name : "rani",
-}
+// console.log(this); // window varum (browser)
 
-function greetFrom(city,country){
-    return `hello ${this.name} from ${city} ${country}`;
-}
+// const obj2 = {
+//     name : "shifa",
 
-console.log(greetFrom.apply(person3,["Trichy","India"]));
-console.log(greetFrom.apply(person4,["Trichy","India"]));
+//     insidemethod : function(){
+//       console.log(this);
+//     }
+
+// }
+// obj2.insidemethod();
+
+// //compare 2 obj prototype
+
+// function Student (name,age){
+//     this.name=name;
+//     this.age=age;
+// }
+// const p1 = new Student("shifa",21);
+// const p2 = new Student("raj",21);
+
+// console.log(Object.getPrototypeOf(p1)===Object.getPrototypeOf(p2));
+
+// //call() apply()
+// //this will help to call a one function in different context
+
+// const person1 = {
+//     name : "shifa",
+// }
+
+// const person2 = {
+//     name : "raji",
+// }
+
+// function greet(){
+//     return `hello ${this.name}`;
+// }
+
+// console.log(greet.call(person1));
+// console.log(greet.call(person2));
 
 
-//compare prototype
+// //apply()
 
-function details(city,country){
-    this.city=city;
-    this.country=country;
-}
+// const person3 = {
+//     name : "raja",
+// }
 
-details.prototype.detail = function(){
-    return `I am from ${this.city},${this.country}`;
-}
+// const person4 ={
+//     name : "rani",
+// }
 
-const result = new details("Trichy","India");
-const result1 = new details("chennai","india");
+// function greetFrom(city,country){
+//     return `hello ${this.name} from ${city} ${country}`;
+// }
 
-console.log(result);
-console.log(result.detail());
+// console.log(greetFrom.apply(person3,["Trichy","India"]));
+// console.log(greetFrom.apply(person4,["Trichy","India"]));
 
-result.detail=function(){
-    return "overide";
-}
-details.prototype.detail=function(){
-    return "this is overide line";
-}
-console.log(result);
-console.log(result.detail());
 
-console.log(result1);
-console.log(result1.detail());
+// //compare prototype overide
+
+// function details(city,country){
+//     this.city=city;
+//     this.country=country;
+// }
+
+// details.prototype.detail = function(){
+//     return `I am from ${this.city},${this.country}`;
+// }
+
+// const result = new details("Trichy","India");
+// const result1 = new details("chennai","india");
+
+// console.log(result);
+// console.log(result.detail());
+
+// result.detail=function(){
+//     return "overide";
+// }
+// details.prototype.detail=function(){
+//     return "this is overide line";
+// }
+// console.log(result);
+// console.log(result.detail());
+
+// console.log(result1);
+// console.log(result1.detail());
+
+
+// //Nested function
+// function Person(name){
+//     this.name = name;
+
+//     console.log("outer:",this);
+
+//     function inner(){
+//         console.log("inner:",this);
+//     }
+//     inner();
+    
+
+// }
+// new Person("shifa");// person la ulla value inner func la kondu vara mudiyathu
+
+// //arrow func use panni eduthukala
+
+// // function inner ==>  const inner=()=>
+    
+
+//     function car (brand){
+//       this.brand = brand;
+
+//       console.log("Outer:" , this.brand);
+
+//       //inner function(nested func)
+//       const inner=()=>{
+//          console.log("inner:" , this.brand);
+//       }
+//       inner();
+//     }
+//     new car ("bmw");  //outer inner same 
+
+//     //after func create obj using arrow fun 
+//     const one = {
+
+//         name:"test",
+//         innerfunc:()=>{
+//             console.log("inner:",this.brand)
+//         }
+//     }
+//     one.innerfunc(); //undefined
+
+//     //inheritance
+
+//     function Parent(name){
+//        this.name = name;
+//     }
+
+//     function Child(name,age){
+//         Parent.call(this,name);
+//         this.age=age;
+//     }
+
+//     const final = new Child("shifa",21);
+//     console.log(final);
+//     console.log(final instanceof Parent);//false
+//     console.log(final instanceof Child);//true
+
+
+//     //__proto__
+
+//     const animal={
+//         eat(){
+//             console.log(this.name+"eating");
+//         }
+//     }
+//     // animal.eat();
+
+//     const dog ={
+//         name:"tiger",
+//     }
+//         dog.__proto__=animal;
+//         // animal.eat();
+
+//         console.log(Object.getPrototypeOf(dog)===animal);
+
+//         dog.eat();//tigereating nu varanu but eating tha varum
 
