@@ -297,4 +297,66 @@ const c1 = {...original};
 const c2 = Object.assign({} , original);
 
 c1.name = "Raj";
-console.log(original.name); //shifa
+console.log(original.name); //shifa original marathu
+
+c1.address.city="chennai";
+console.log(c1.address);//trichy varanu but chennai vanthuruku
+
+//bcz obj kulla direct value change aagagthu
+//obj kulla innoru obj ah namma change pannikalam atha shadowing
+
+
+//9-function creation 3 ways iruku
+//Method-1 declaration
+function add(a,b){
+    return (a+b);
+}
+console.log(add(3,2)); //5
+
+// Method-2 expression
+const sub = function(a,b){
+    return (a-b);
+}
+console.log(sub(3,2));//1
+//error varum sub ah tha func ah vaikanu sub = nu vaika koodathu
+// console.log(sub(3,2));//1
+// const sub = function(a,b){
+//     return (a-b);
+// }
+
+//Method-3 new function
+const multiplication = new Function("a","b","return a*b");
+    console.log(multiplication(2,3)); //6 
+
+
+//ADVANCED TASKS
+//bind
+function sayHi(){
+    console.log("hello shifa");
+}    
+// const x = sayHi(); //hello shifa. (normal)
+
+// const x = sayHi;   (variable la store)
+// x();//hello shifa
+
+sayHi();//hello shifa (direct call)
+
+const user = {
+    name : "shifa mugasheena",
+    greet(){
+        console.log(this.name);
+    }
+}
+// user.greet();//shifa mugasheena (normal)
+
+// const y = user.greet;  //(variable la store)
+// y();  //blank space 
+
+//intha prb fix panna tha bind use 
+//func create panni variable la store panna work
+//obj create panni variable la store panna crt ah work agathu
+
+const y = user.greet.bind(user);
+y();//shifa mugasheena 
+//bind this.name user ah kurikuthu shifa va return pannanunu sol
+
