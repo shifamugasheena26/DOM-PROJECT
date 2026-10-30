@@ -11,7 +11,7 @@ function getCustomer(){
         console.log(this.responseText);//json data va ui la kondu vara mudiyathu direct ah (json parse pannanu)
 
         const customer = JSON.parse(this.responseText);
-        // console.log(customer); // json data ==> obj ah parse agiruchu (console la)
+        console.log(customer); // json data ==> obj ah parse agiruchu (console la)
 
         const output = `
           <ul>
