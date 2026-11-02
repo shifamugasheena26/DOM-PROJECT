@@ -51,7 +51,7 @@ http.put("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/2",putData,funct
 const deleteData = {
     name : "Sangeetha",
 }
-http.delete("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/12",function(err,data){
+http.delete("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/11",function(err,data){
     if(err){
         console.log("Error : " , err);
     }
@@ -59,3 +59,7 @@ http.delete("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/12",function(
         console.log("Data deleted : " , data);
     }
 });
+//with callback function
+//the above code is synchronous ithu run panna wait pannathu 
+// fast ah nadantha code execute agirum
+//non-blocking ah work aagiruku

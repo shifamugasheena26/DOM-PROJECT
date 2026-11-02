@@ -1,4 +1,6 @@
-//easyHTTP - library for making HTTP requests
+//get delete ku data pass pannanunu avasiyam illa
+//post put ku data pass pannanum
+///easyHTTP - library for making HTTP requests
 class easyHTTP{
     //make an HTTP (GET) request (get data from server)
     get(url,callback){
