@@ -9,7 +9,7 @@ const http = new easyHTTP();
 
 //using a GET request with callback
 //(already iruka data get pannadrom)
-http.get("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user",function(err,data){
+http.get("https://6ae8a1491a7b15aaa50f5229.mockapi.io/users/users",function(err,data){
     if(err){
         console.log("Error : " , err);
     }
@@ -23,7 +23,7 @@ http.get("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user",function(err,da
 const postData = {
     name : " Shifa Mugasheena.A",
 }
-http.post("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user",postData,function(err,data){
+http.post("https://6ae8a1491a7b15aaa50f5229.mockapi.io/users/users",postData,function(err,data){
     if(err){
         console.log("Error : " , err);
     }
@@ -37,7 +37,7 @@ http.post("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user",postData,funct
 const putData = {
     name : "Sangeetha",
 }
-http.put("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/2",putData,function(err,data){
+http.put("https://6ae8a1491a7b15aaa50f5229.mockapi.io/users/users/8",putData,function(err,data){
     if(err){
         console.log("Error : " , err);
     }
@@ -48,10 +48,8 @@ http.put("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/2",putData,funct
 
 //using a DELETE request with callback
 //(particular id data delete pandrom)
-const deleteData = {
-    name : "Sangeetha",
-}
-http.delete("https://6ae5eb08877d34ccafc2894d.mockapi.io/user/user/11",function(err,data){
+
+http.delete("https://6ae8a1491a7b15aaa50f5229.mockapi.io/users/users/3",function(err,data){
     if(err){
         console.log("Error : " , err);
     }
