@@ -19,3 +19,8 @@ function createPost(post){
 
 //promise create
 // console.log(new Promise(_,_));// ithula pass pannanu
+
+
+//arrow function
+//Arrow function na, JavaScript-la oru short way-la function eludhura syntax. 
+// Normal function-ku bathila => symbol use pannuvom.
