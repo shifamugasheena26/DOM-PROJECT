@@ -1,3 +1,8 @@
+//arrow function
+//Arrow function na, JavaScript-la oru short way-la function eludhura syntax. 
+// Normal function-ku bathila => symbol use pannuvom.
+
+
 //promise is a callback alternative to handle asynchronous operation in js
 //callback hell - oru callback function-kulla innoru callback, 
 // athukulla innoru callback nu nested callbacks 
@@ -8,6 +13,11 @@ const posts = [
     {title:"Post Two"},
 ];
 
+
+//promise create
+// console.log(new Promise(_,_));// ithula pass pannanu
+
+
 // it return promise
 function createPost(post){
 
@@ -15,7 +25,7 @@ function createPost(post){
         setTimeout(() =>{
             posts.push(post);
 
-            const error = false;
+            const error = false; // false panna success, true panna failure
             if(!error){
                 resolve();
             }
@@ -43,10 +53,11 @@ function getPosts(){
 
     },1000); // 3 sec la get pandrom
 }
-//promise create
-// console.log(new Promise(_,_));// ithula pass pannanu
+
+createPost({title : "Post three"})
+.then(getPosts) // success
+.catch((err) => {
+    document.body.innerHTML = err ;
+ }); // failure
 
 
-//arrow function
-//Arrow function na, JavaScript-la oru short way-la function eludhura syntax. 
-// Normal function-ku bathila => symbol use pannuvom.
